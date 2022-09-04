@@ -1,8 +1,8 @@
 import { OfferItems } from '../module/offers.module.js'
 
 export const fetchingOffersFromAPI = (idOfContainer, API) => {
-  const promiseOfoffers = fetch(API)
-  promiseOfoffers
+  const promiseOfOffers = fetch(API)
+  promiseOfOffers
     .then((res) => {
       return res.json()
     })

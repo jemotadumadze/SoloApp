@@ -4,11 +4,11 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>დეველოპერების შეთავაზებები</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="icon" href="./img/logo-responsive.svg">
 </head>
 
 <body>
@@ -67,20 +67,14 @@
             <div class="container">
 
                 <ul class="menu-items" id="nav-parent">
-                    <!-- <li class="submenu-item">მთავარი</li>
-                    <li class="submenu-item">ბანკინგი</li>
-                    <li class="submenu-item">ელექტრონული ბანკი</li>
-                    <li class="submenu-item">Lifestyle</li>
-                    <li class="submenu-item">მთავარი</li>
-                    <li class="submenu-item">ჩვენ შესახებ</li>
-                    <li class="submenu-item">სიახლეები</li>
-                    <li class="submenu-item">ინვესტიციები</li>
-                    <li class="submenu-item">ბლოგი</li> -->
-
                 </ul>
 
             </div>
 
+        </div>
+
+        <div class="floating-button">
+            <a href="#" class="floating-button-content">გახდი სოლო</a>
         </div>
 
     </header>
@@ -102,22 +96,25 @@
             <div class="header-catalog-content">
                 <div class="header-catalog-content-left">
                     <h3>დეველოპერები</h3>
+                    <h3 id="off-count"></h3>
                 </div>
                 <div class="header-catalog-content-right">
                     <div class="search">
-                        <form action="#" method="get">
-                            <input class="input-text" type="text" />
-                        </form>
+                        <input class="input-text" type="text" id="search-input"/>
                         <div class="sumbit-icon">
                             <button class="sumbit" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
 
-                    <div class="sort">
-                        <select name="sort" class="sort-catalog">
-                            <option value="კლებადი ფასით" selected>კლებადი ფასით</option>
-                            <option value="ზრდადი ფასით">ზრდადი ფასით</option>
-                        </select>
+                    <div class="responsive-filters">
+                        <button class="responsive-filter-button"> <i class="fa fa-filter"></i>ფილტრი </button>
+                        <div class="sort">
+                            <select name="sort" class="sort-catalog" id="sort-selector">
+                                <option value="all" >ყველა</option>
+                                <option value="costDesc">კლებადი ფასით</option>
+                                <option value="costAsc">ზრდადი ფასით</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,12 +134,12 @@
                         <button id="btn" class="city-filter-button"><i class="fa fa-chevron-down"></i></button>
                     </div>
                     <div class="city-filter-content" id="filter-city">
-                        <input type="checkbox" value="თბილისი" id="city"> <label for="tbilisi">თბილისი</label><br>
-                        <input type="checkbox" value="ქუთაისი" id="city"> <label for="tbilisi">ქუთაისი</label><br>
-                        <input type="checkbox" value="ბათუმი" id="city"> <label for="tbilisi">ბათუმი</label><br>
-                        <input type="checkbox" value="ბაკურიანი" id="city"> <label for="tbilisi">ბაკურიანი</label><br>
-                        <input type="checkbox" value="გუდაური" id="city"> <label for="tbilisi">გუდაური</label><br>
-                        <input type="checkbox" value="აბასთუმანი" id="city"> <label for="tbilisi">აბასთუმანი</label><br>
+                        <input type="checkbox" name=city value="თბილისი" id="city"> <label for="tbilisi">თბილისი</label><br>
+                        <input type="checkbox" name=city value="ქუთაისი" id="city"> <label for="tbilisi">ქუთაისი</label><br>
+                        <input type="checkbox" name=city value="ბათუმი" id="city"> <label for="tbilisi">ბათუმი</label><br>
+                        <input type="checkbox" name=city value="ბაკურიანი" id="city"> <label for="tbilisi">ბაკურიანი</label><br>
+                        <input type="checkbox" name=city value="გუდაური" id="city"> <label for="tbilisi">გუდაური</label><br>
+                        <input type="checkbox" name=city value="აბასთუმანი" id="city"> <label for="tbilisi">აბასთუმანი</label><br>
                     </div>
 
                 </div>
@@ -180,22 +177,21 @@
                 </div>
 
             </div>
-            <div class="offers" id="offers-container">
 
+            <div class="offers-container">
+                <div class="offers" id="offers-container"></div>
+                <div class="items-container">
+                    <div class="no-items">
+                        <img src="./img/notFound.png" alt="" style="background-color: white;">
+                        <h4>კატეგორია ცარიელია</h4>
+                        <span>მონიშნულ კატეგორიაში ვერ მოიძებნა მონაცემები, გთხოვთ მონიშნოთ სხვა კატეგორია</span>
+                    </div>
+                </div>
             </div>
+            
         </section>
     </div>
-    <div class="container">
-        <div class="itemsContainer">
-            <div class="noItems">
-                <img src="./img/website.jpeg" alt="">
-                <h4>კატეგორია ცარიელია</h4>
-                <span>მონიშნულ კატეგორიაში ვერ მოიძებნა მონაცემები, გთხოვთ მონიშნოთ სხვა კატეგორია</span>
-            </div>
-        </div>
-    </div>
-
-
+        
     <div class="container">
         <footer class="footer-sections">
 

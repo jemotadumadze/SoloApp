@@ -2,14 +2,25 @@ import { fetchingOffersFromAPI } from './common/fetchoffers.js'
 import { queryUrl } from './config/config.js'
 import { NavBar } from './module/navbar.module.js'
 
+
 import { FilterRange } from './module/filter.module.js'
 
 const offersContainer = document.getElementById('offers-container')
+const NavBarContainer = document.getElementById('nav-parent')
 const filterContainer = document.getElementById('filter-price')
-const Navbarcontainer=document.getElementById('nav-parent')
 
+var queryParams = '';
+
+// fetching Offers From API
 fetchingOffersFromAPI(offersContainer, `${queryUrl}?limit=9`)
 
+// render range filter dynamically
+const filters = new FilterRange(filterContainer);
+filters.render();
+
+// render nav bar dynamically
+const navBar = new NavBar(NavBarContainer);
+navBar.render()
 
 //city filter
 var filterCityIsActive = true
@@ -26,6 +37,8 @@ btn.addEventListener(
   },
   false,
 )
+
+
 //range filter
 var filterRangeActive = true
 var rangeBtn = document.getElementById('range-btn')
@@ -34,13 +47,15 @@ rangeBtn.addEventListener(
   function () {
     filterRangeActive = !filterRangeActive
     if (filterRangeActive) {
-      document.getElementById('filter-price').style.display = 'block'
+      filterContainer.style.display = 'block'
     } else {
-      document.getElementById('filter-price').style.display = 'none'
+      filterContainer.style.display = 'none'
     }
   },
   false,
 )
+
+
 //status filter
 var filterStatusActive = true
 var btns = document.getElementById('status-btn')
@@ -57,15 +72,115 @@ btns.addEventListener(
   false,
 )
 
-const filters = new FilterRange(filterContainer);
-filters.render();
+
+// ******* MANAGE FILTERS *******
+
+// handle city filter
+var filteredCities = [];
+var checkCity = document.getElementById('filter-city')
+checkCity.addEventListener(
+  'change',
+  function (e) {
+    let currCity = e.target.value
+    if (!filteredCities.includes(currCity)) {
+      filteredCities.push(currCity);
+    } else {
+      let newFilteredCities = [];
+      for (let index = 0; index < filteredCities.length; index++) {
+        if (filteredCities[index] !== currCity) {
+          newFilteredCities.push(filteredCities[index]);
+        }
+      }
+      filteredCities = newFilteredCities;
+    }
+
+    getOffers()
+  },
+  false,
+)
 
 
+// handle price filter
+var priceValue = [];
+var radioPrice = filterContainer
+radioPrice.addEventListener(
+  'click',
+  function (e) {
+    priceValue = e.target.value.split('-');
+    getOffers();
+  },
+  false,
+)
 
-// let homePage=new NavBar(app);
-// let list =homePage.render();
-// console.log(list);
 
-const navBar = new NavBar(Navbarcontainer);
-navBar.render()
+var filteredStatuses = [];
+var checkStatus = document.getElementById('filter-status')
+checkStatus.addEventListener(
+  'change',
+  function (e) {
+    let newValue = e.target.value
+    if (!filteredStatuses.includes(newValue)) {
+      filteredStatuses.push(newValue);
+    } else {
+      let newStatuses = [];
+      for (let index = 0; index < filteredStatuses.length; index++) {
+        if (filteredStatuses[index] !== newValue) {
+          newStatuses.push(filteredStatuses[index]);
+        }
+      }
+      filteredStatuses = newStatuses;
+    }
+    getOffers();
+  },
+  false,
+)
 
+
+// sort by price
+var sortValue = '';
+var sortSelector = document.getElementById('sort-selector')
+sortSelector.addEventListener(
+  'change',
+  function () {
+    sortValue = sortSelector.options[sortSelector.selectedIndex].value;
+    getOffers();
+  },
+  false,
+)
+
+var searchValue = '';
+var searchInput = document.getElementById('search-input')
+searchInput.addEventListener(
+  'change',
+  function () {
+    searchValue = searchInput.value;
+    getOffers();
+  },
+  false,
+)
+
+function getOffers() {
+  queryParams = '';
+  if (filteredCities.length > 0) {
+    queryParams += '&cityParam=' + filteredCities.toString();
+  }
+
+  if (filteredStatuses.length > 0) {
+    queryParams += '&typeParam=' + filteredStatuses.toString();
+  }
+
+  if (priceValue.length > 0 && priceValue[0] !== 'all') {
+    queryParams += '&fromParam=' + priceValue[0];
+    queryParams += '&toParam=' + priceValue[1];
+  }
+
+  if (sortValue.length > 0 && sortValue !== 'all') {
+    queryParams += '&sortBy=' + sortValue;
+  }
+
+  if (searchValue.length > 0) {
+    queryParams += '&searchStr=' + searchValue;
+  }
+
+  fetchingOffersFromAPI(offersContainer, `${queryUrl}?limit=9${queryParams}`)
+}
