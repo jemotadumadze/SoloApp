@@ -1,13 +1,17 @@
 import { fetchingOffersFromAPI } from './common/fetchoffers.js'
 import { queryUrl } from './config/config.js'
+import { NavBar } from './module/navbar.module.js'
 
 import { FilterRange } from './module/filter.module.js'
 
 const offersContainer = document.getElementById('offers-container')
 const filterContainer = document.getElementById('filter-price')
+const Navbarcontainer=document.getElementById('nav-parent')
 
 fetchingOffersFromAPI(offersContainer, `${queryUrl}?limit=9`)
 
+
+//city filter
 var filterCityIsActive = true
 var btn = document.getElementById('btn')
 btn.addEventListener(
@@ -22,7 +26,7 @@ btn.addEventListener(
   },
   false,
 )
-
+//range filter
 var filterRangeActive = true
 var rangeBtn = document.getElementById('range-btn')
 rangeBtn.addEventListener(
@@ -37,7 +41,7 @@ rangeBtn.addEventListener(
   },
   false,
 )
-
+//status filter
 var filterStatusActive = true
 var btns = document.getElementById('status-btn')
 btns.addEventListener(
@@ -53,5 +57,15 @@ btns.addEventListener(
   false,
 )
 
-const filters = new FilterRange(filterContainer)
-filters.render()
+const filters = new FilterRange(filterContainer);
+filters.render();
+
+
+
+// let homePage=new NavBar(app);
+// let list =homePage.render();
+// console.log(list);
+
+const navBar = new NavBar(Navbarcontainer);
+navBar.render()
+

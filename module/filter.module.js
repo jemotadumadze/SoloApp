@@ -21,7 +21,7 @@ export class FilterRange extends Base {
       .join('')
   }
   render() {
-    console.log('aaaaaaaaaa')
+   
     const content = this._renderfilterList()
     this.setContent(content)
   }

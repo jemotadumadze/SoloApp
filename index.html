@@ -12,12 +12,15 @@
 </head>
 
 <body>
-    <header>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-top">
 
-        <div class="header-top">
-            <div class="container">
                 <div class="content">
-                    <img src="https://solo.ge/uncompiled-unbundled/assets/logo.svg" alt="">
+                    <div class="header-top-left">
+                        <img src="https://solo.ge/uncompiled-unbundled/assets/logo.svg" alt="">
+                    </div>
+
                     <ul class="header-left-navigation">
                         <li>
                             <a href="">SOLO</a>
@@ -55,16 +58,16 @@
                     <button class="target">GEO</button>
                     <button class="become-solo-button">გახდი SOLO</button>
 
-                </div>
 
+                </div>
             </div>
         </div>
 
-        <div class="header-bottom">
+        <div class="header-bottom" id="header-bottom">
             <div class="container">
 
-                <ul class="menu-items">
-                    <li class="submenu-item">მთავარი</li>
+                <ul class="menu-items" id="nav-parent">
+                    <!-- <li class="submenu-item">მთავარი</li>
                     <li class="submenu-item">ბანკინგი</li>
                     <li class="submenu-item">ელექტრონული ბანკი</li>
                     <li class="submenu-item">Lifestyle</li>
@@ -72,7 +75,7 @@
                     <li class="submenu-item">ჩვენ შესახებ</li>
                     <li class="submenu-item">სიახლეები</li>
                     <li class="submenu-item">ინვესტიციები</li>
-                    <li class="submenu-item">ბლოგი</li>
+                    <li class="submenu-item">ბლოგი</li> -->
 
                 </ul>
 
@@ -97,8 +100,26 @@
     <div class="container">
         <div class="header-catalog">
             <div class="header-catalog-content">
-                <h3>დეველოპერები</h3>
-                <input type="search">
+                <div class="header-catalog-content-left">
+                    <h3>დეველოპერები</h3>
+                </div>
+                <div class="header-catalog-content-right">
+                    <div class="search">
+                        <form action="#" method="get">
+                            <input class="input-text" type="text" />
+                        </form>
+                        <div class="sumbit-icon">
+                            <button class="sumbit" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="sort">
+                        <select name="sort" class="sort-catalog">
+                            <option value="კლებადი ფასით" selected>კლებადი ფასით</option>
+                            <option value="ზრდადი ფასით">ზრდადი ფასით</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -108,7 +129,7 @@
 
 
     <div class="container">
-        <div class="solo-developers">
+        <section class="solo-developers">
             <div class="selects">
                 <div class="filter-city">
                     <div class="filter-header-top">
@@ -146,6 +167,15 @@
                         <input type="checkbox" value="თეთრი კარკასი" id="status">
                         <label for="თეთრი კარკასი">თეთრი კარკასი</label><br>
 
+                        <input type="checkbox" value="შავი კარკასი" id="status">
+                        <label for="შავი კარკასი">შავი კარკასი</label><br>
+
+                        <input type="checkbox" value="გარემონტებული" id="status">
+                        <label for="გარემონტებული">გარემონტებული</label><br>
+
+                        <input type="checkbox" value="ლურჯი კარკასი" id="status">
+                        <label for="ლურჯი კარკასი">ლურჯი კარკასი</label><br>
+
                     </div>
                 </div>
 
@@ -153,11 +183,17 @@
             <div class="offers" id="offers-container">
 
             </div>
+        </section>
+    </div>
+    <div class="container">
+        <div class="itemsContainer">
+            <div class="noItems">
+                <img src="./img/website.jpeg" alt="">
+                <h4>კატეგორია ცარიელია</h4>
+                <span>მონიშნულ კატეგორიაში ვერ მოიძებნა მონაცემები, გთხოვთ მონიშნოთ სხვა კატეგორია</span>
+            </div>
         </div>
     </div>
-
-
-
 
 
     <div class="container">
@@ -174,6 +210,7 @@
                 </select>
             </div>
     </div>
+
     </footer>
 
     <script type="module" src="./main.js"></script>
