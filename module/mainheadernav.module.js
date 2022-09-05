@@ -1,19 +1,22 @@
 import { Base } from '../common/base.js'
 import { app } from '../common/common.js'
 
-export class NavBar extends Base {
+export class MainHeaderNav extends Base {
   constructor(id) {
     super(id)
   }
-  _headerMenuNav() {
-    return app.nav
+  _mainheadernav() {
+    return app.header
       .map((obj) => {
-        return `<li class="submenu-item">${obj.title}</li>`
+        return `
+        <li>
+        <a href="">${obj.title}</a>
+        </li>`
       })
       .join('')
   }
   render() {
-    const content = this._headerMenuNav()
+    const content = this._mainheadernav()
     this.setContent(content)
   }
 }

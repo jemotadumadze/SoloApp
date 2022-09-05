@@ -1,26 +1,41 @@
 import { fetchingOffersFromAPI } from './common/fetchoffers.js'
 import { queryUrl } from './config/config.js'
 import { NavBar } from './module/navbar.module.js'
-
-
-import { FilterRange } from './module/filter.module.js'
+import { CityFilter } from './module/city.filter.module.js'
+import { StatusFilter } from './module/status.filter.module.js'
+import { FilterRange } from './module/price.filter.module.js'
+import { MainHeaderNav } from './module/mainheadernav.module.js'
 
 const offersContainer = document.getElementById('offers-container')
 const NavBarContainer = document.getElementById('nav-parent')
 const filterContainer = document.getElementById('filter-price')
+const cityFilterContainer = document.getElementById('filter-city')
+const statusFilterContainer = document.getElementById('filter-status')
+const mainHeaderContainer = document.getElementById('main-header-nav')
 
-var queryParams = '';
+var queryParams = ''
 
-// fetching Offers From API
+// fetching Offers From API, limit:9
 fetchingOffersFromAPI(offersContainer, `${queryUrl}?limit=9`)
 
 // render range filter dynamically
-const filters = new FilterRange(filterContainer);
-filters.render();
+const filters = new FilterRange(filterContainer)
+filters.render()
+
+// render city filter dynamically
+const city = new CityFilter(cityFilterContainer)
+city.render()
+
+// render status filter dynamically
+const status = new StatusFilter(statusFilterContainer)
+status.render()
 
 // render nav bar dynamically
-const navBar = new NavBar(NavBarContainer);
+const navBar = new NavBar(NavBarContainer)
 navBar.render()
+
+const mainheader = new MainHeaderNav(mainHeaderContainer)
+mainheader.render()
 
 //city filter
 var filterCityIsActive = true
@@ -38,7 +53,6 @@ btn.addEventListener(
   false,
 )
 
-
 //range filter
 var filterRangeActive = true
 var rangeBtn = document.getElementById('range-btn')
@@ -54,7 +68,6 @@ rangeBtn.addEventListener(
   },
   false,
 )
-
 
 //status filter
 var filterStatusActive = true
@@ -72,26 +85,25 @@ btns.addEventListener(
   false,
 )
 
-
 // ******* MANAGE FILTERS *******
 
 // handle city filter
-var filteredCities = [];
+var filteredCities = []
 var checkCity = document.getElementById('filter-city')
 checkCity.addEventListener(
   'change',
   function (e) {
     let currCity = e.target.value
     if (!filteredCities.includes(currCity)) {
-      filteredCities.push(currCity);
+      filteredCities.push(currCity)
     } else {
-      let newFilteredCities = [];
+      let newFilteredCities = []
       for (let index = 0; index < filteredCities.length; index++) {
         if (filteredCities[index] !== currCity) {
-          newFilteredCities.push(filteredCities[index]);
+          newFilteredCities.push(filteredCities[index])
         }
       }
-      filteredCities = newFilteredCities;
+      filteredCities = newFilteredCities
     }
 
     getOffers()
@@ -99,88 +111,84 @@ checkCity.addEventListener(
   false,
 )
 
-
 // handle price filter
-var priceValue = [];
+var priceValue = []
 var radioPrice = filterContainer
 radioPrice.addEventListener(
   'click',
   function (e) {
-    priceValue = e.target.value.split('-');
-    getOffers();
+    priceValue = e.target.value.split('-')
+    getOffers()
   },
   false,
 )
 
-
-var filteredStatuses = [];
+var filteredStatuses = []
 var checkStatus = document.getElementById('filter-status')
 checkStatus.addEventListener(
   'change',
   function (e) {
     let newValue = e.target.value
     if (!filteredStatuses.includes(newValue)) {
-      filteredStatuses.push(newValue);
+      filteredStatuses.push(newValue)
     } else {
-      let newStatuses = [];
+      let newStatuses = []
       for (let index = 0; index < filteredStatuses.length; index++) {
         if (filteredStatuses[index] !== newValue) {
-          newStatuses.push(filteredStatuses[index]);
+          newStatuses.push(filteredStatuses[index])
         }
       }
-      filteredStatuses = newStatuses;
+      filteredStatuses = newStatuses
     }
-    getOffers();
+    getOffers()
   },
   false,
 )
 
-
 // sort by price
-var sortValue = '';
+var sortValue = ''
 var sortSelector = document.getElementById('sort-selector')
 sortSelector.addEventListener(
   'change',
   function () {
-    sortValue = sortSelector.options[sortSelector.selectedIndex].value;
-    getOffers();
+    sortValue = sortSelector.options[sortSelector.selectedIndex].value
+    getOffers()
   },
   false,
 )
 
-var searchValue = '';
+var searchValue = ''
 var searchInput = document.getElementById('search-input')
 searchInput.addEventListener(
   'change',
   function () {
-    searchValue = searchInput.value;
-    getOffers();
+    searchValue = searchInput.value
+    getOffers()
   },
   false,
 )
 
 function getOffers() {
-  queryParams = '';
+  queryParams = ''
   if (filteredCities.length > 0) {
-    queryParams += '&cityParam=' + filteredCities.toString();
+    queryParams += '&cityParam=' + filteredCities.toString()
   }
 
   if (filteredStatuses.length > 0) {
-    queryParams += '&typeParam=' + filteredStatuses.toString();
+    queryParams += '&typeParam=' + filteredStatuses.toString()
   }
 
   if (priceValue.length > 0 && priceValue[0] !== 'all') {
-    queryParams += '&fromParam=' + priceValue[0];
-    queryParams += '&toParam=' + priceValue[1];
+    queryParams += '&fromParam=' + priceValue[0]
+    queryParams += '&toParam=' + priceValue[1]
   }
 
   if (sortValue.length > 0 && sortValue !== 'all') {
-    queryParams += '&sortBy=' + sortValue;
+    queryParams += '&sortBy=' + sortValue
   }
 
   if (searchValue.length > 0) {
-    queryParams += '&searchStr=' + searchValue;
+    queryParams += '&searchStr=' + searchValue
   }
-
   fetchingOffersFromAPI(offersContainer, `${queryUrl}?limit=9${queryParams}`)
 }

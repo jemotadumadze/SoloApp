@@ -15,34 +15,24 @@
     <header class="main-header">
         <div class="container">
             <div class="header-top">
-
                 <div class="content">
                     <div class="header-top-left">
                         <img src="https://solo.ge/uncompiled-unbundled/assets/logo.svg" alt="">
                     </div>
-
-                    <ul class="header-left-navigation">
-                        <li>
+                    <!-- header navigation -->
+                    <ul class="header-left-navigation" id="main-header-nav">
+                        <!-- <li>
                             <a href="">SOLO</a>
-                        </li>
-                        <li>
-                            <a href="">ფიზიკური პირი</a>
-                        </li>
-                        <li>
-                            <a href="">ბიზნესი</a>
-                        </li>
-                        <li>
-                            <a href="">wealth</a>
-                        </li>
-                        <li>
-                            <a href="">შეთავაზებები</a>
-                        </li>
+                        </li> -->
                     </ul>
                     <div class="icon-container">
-                        <img class="conversion" src="img/bd_conversion.svg" />
-                        <img class="pin" src="img/bd_pin.svg" />
+                        <div class="conversion-container">
+                            <img class="conversion" src="img/bd_conversion.svg" />
+                        </div>
+                        <div class="pin-container">
+                            <img class="pin" src="img/bd_pin.svg" />
+                        </div>
                     </div>
-
                     <div class="wrapper">
                         <div class="icone-wrapper">
                             <img src="./img/bd_user_default_photo_outline (2).svg" alt="">
@@ -51,38 +41,26 @@
                             <option value="internet-bank">ინტერნეტბანკი</option>
                             <option value="retail">ფიზიკური პირი</option>
                             <option value="business">ბიზნესი</option>
-
                         </select>
                     </div>
-
                     <button class="target">GEO</button>
                     <button class="become-solo-button">გახდი SOLO</button>
-
-
                 </div>
             </div>
         </div>
-
         <div class="header-bottom" id="header-bottom">
             <div class="container">
-
                 <ul class="menu-items" id="nav-parent">
                 </ul>
-
             </div>
-
         </div>
-
         <div class="floating-button">
             <a href="#" class="floating-button-content">გახდი სოლო</a>
         </div>
-
     </header>
-
+    <!-- banner section -->
     <div class="container">
         <h2 class="title">დეველოპერები</h2>
-
-
         <div class="herro-banner">
             <div class="overlay"></div>
             <img src="./img/a3dd4512-dc72-45cd-b93c-b96a8b050eb2.png" alt="">
@@ -90,9 +68,9 @@
             <button>გაიგე მეტი</button>
         </div>
     </div>
-
+    <!-- catalog header -->
     <div class="container">
-        <div class="header-catalog">
+        <section class="header-catalog">
             <div class="header-catalog-content">
                 <div class="header-catalog-content-left">
                     <h3>დეველოპერები</h3>
@@ -100,17 +78,16 @@
                 </div>
                 <div class="header-catalog-content-right">
                     <div class="search">
-                        <input class="input-text" type="text" id="search-input"/>
+                        <input class="input-text" type="text" id="search-input" />
                         <div class="sumbit-icon">
                             <button class="sumbit" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-
                     <div class="responsive-filters">
                         <button class="responsive-filter-button"> <i class="fa fa-filter"></i>ფილტრი </button>
                         <div class="sort">
                             <select name="sort" class="sort-catalog" id="sort-selector">
-                                <option value="all" >ყველა</option>
+                                <option value="all">ყველა</option>
                                 <option value="costDesc">კლებადი ფასით</option>
                                 <option value="costAsc">ზრდადი ფასით</option>
                             </select>
@@ -118,13 +95,9 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+    </section>
     </div>
-
-
-
-
     <div class="container">
         <section class="solo-developers">
             <div class="selects">
@@ -134,16 +107,9 @@
                         <button id="btn" class="city-filter-button"><i class="fa fa-chevron-down"></i></button>
                     </div>
                     <div class="city-filter-content" id="filter-city">
-                        <input type="checkbox" name=city value="თბილისი" id="city"> <label for="tbilisi">თბილისი</label><br>
-                        <input type="checkbox" name=city value="ქუთაისი" id="city"> <label for="tbilisi">ქუთაისი</label><br>
-                        <input type="checkbox" name=city value="ბათუმი" id="city"> <label for="tbilisi">ბათუმი</label><br>
-                        <input type="checkbox" name=city value="ბაკურიანი" id="city"> <label for="tbilisi">ბაკურიანი</label><br>
-                        <input type="checkbox" name=city value="გუდაური" id="city"> <label for="tbilisi">გუდაური</label><br>
-                        <input type="checkbox" name=city value="აბასთუმანი" id="city"> <label for="tbilisi">აბასთუმანი</label><br>
+                        <!-- <input type="checkbox" name=city value="თბილისი" id="city"> <label for="tbilisi">თბილისი</label><br>-->
                     </div>
-
                 </div>
-
                 <div class="price-filter">
                     <div class="filter-header-top">
                         <span>კვადრატულის ფასი</span>
@@ -158,28 +124,14 @@
                         <button id="status-btn" class="city-filter-button"><i class="fa fa-chevron-down"></i></button>
                     </div>
                     <div class="status-filter-content" id="filter-status">
-                        <input type="checkbox" value="მწვანე კარკასი" id="status">
-                        <label for="მწვანე კარკასი">მწვანე კარკასი</label><br>
-
-                        <input type="checkbox" value="თეთრი კარკასი" id="status">
-                        <label for="თეთრი კარკასი">თეთრი კარკასი</label><br>
-
-                        <input type="checkbox" value="შავი კარკასი" id="status">
-                        <label for="შავი კარკასი">შავი კარკასი</label><br>
-
-                        <input type="checkbox" value="გარემონტებული" id="status">
-                        <label for="გარემონტებული">გარემონტებული</label><br>
-
-                        <input type="checkbox" value="ლურჯი კარკასი" id="status">
-                        <label for="ლურჯი კარკასი">ლურჯი კარკასი</label><br>
-
+                        <!-- <input type="checkbox" value="მწვანე კარკასი" id="status"> <label>მწვანე კარკასი</label><br>-->
                     </div>
                 </div>
-
             </div>
-
+            <!-- offers -->
             <div class="offers-container">
                 <div class="offers" id="offers-container"></div>
+                <!-- empty item container -->
                 <div class="items-container">
                     <div class="no-items">
                         <img src="./img/notFound.png" alt="" style="background-color: white;">
@@ -188,27 +140,21 @@
                     </div>
                 </div>
             </div>
-            
         </section>
     </div>
-        
+
+    <!-- footer -->
     <div class="container">
         <footer class="footer-sections">
-
             <div class="footer">
                 <img src="https://solo.ge/uncompiled-unbundled/assets/logo.svg" alt="">
                 <div slot="copyright" class="copyright">2022 საქართველოს ბანკი</div>
-
                 <select name="language" class="language">
                     <option value="english">🇺🇸 english</option>
                     <option value="georgia">georgia</option>
-
                 </select>
             </div>
+        </footer>
     </div>
-
-    </footer>
-
     <script type="module" src="./main.js"></script>
-
 </body>

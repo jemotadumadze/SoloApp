@@ -29,9 +29,10 @@ export class OfferItems extends Base {
     this.setContent(content)
     this.manageOffersQuantity()
   }
-
+  // offer counter
   manageOffersQuantity() {
     document.getElementById('off-count').innerHTML = `( ${this.data.total} )`
+    //empty container
     if (this.data.items.length === 0) {
       document.querySelector('.items-container').style.display = 'flex'
     } else if (document.querySelector('.items-container')) {

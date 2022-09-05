@@ -2,53 +2,30 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-.items-container {
-  display: none;
-}
-
 @font-face {
   font-family: 'BOG Headline';
   src: url('./fonts/BOG-Headline-Bold.woff2');
 }
-
 @font-face {
   font-family: 'BOG Regular';
   src: url('./fonts/BOG-Regular.woff2');
 }
-
-
 body {
   overflow-anchor: none;
   --color-primary-solid-10: #fb8d04;
   --color-primary-solid-20: #fb9517;
-  --color-primary-solid-30: #fba336;
-  --color-primary-solid-40: #fcb154;
-  --color-primary-solid-50: #fedaae;
-  --color-primary-solid-60: #ffedd6;
-  --color-primary-solid-70: #fff6eb;
-  --color-invert-background-solid-10: #192635;
-  --color-invert-background-solid-20: #2b3a48;
   --color-invert-background-solid-30: #091a2b;
   --color-invert-background-solid-40: #2b3a48;
-  --color-support-solid-first: #2b3a48;
-  --color-invert-component-solid-10: rgba(255, 255, 255, 0.99);
-  --color-invert-component-tr-20: rgba(255, 255, 255, 0.9);
   --color-invert-component-tr-30: rgba(255, 255, 255, 0.78);
   --color-invert-component-tr-40: rgba(255, 255, 255, 0.66);
-  --color-invert-component-tr-50: rgba(255, 255, 255, 0.3);
-  --color-invert-component-tr-60: rgba(255, 255, 255, 0.15);
-  --color-invert-component-tr-70: rgba(255, 255, 255, 0.07);
   --color-invert-component-tr-80: rgba(255, 255, 255, 0.03);
-  --color-invert-component-tr-90: rgba(255, 255, 255, 0);
-  --color-greyish-fourth: var(--color-invert-component-tr-60);
-  --input-background: var(--color-invert-background-solid-10);
-  --background-color: var(--color-invert-background-solid-10);
   --solo-blue: var(--color-invert-background-solid-30);
-  --solo-yellow: #faa21b;
   background-color: var(--solo-blue);
 }
-
+/* empty  */
+.items-container {
+  display: none;
+}
 .header-top {
   display: flex;
   justify-content: center;
@@ -71,7 +48,6 @@ body {
   align-items: center;
   padding-right: 100px;
 }
-
 .header-left-navigation li {
   list-style-type: none;
 }
@@ -88,14 +64,36 @@ li:first-of-type a {
   display: flex;
   align-items: center;
 }
+.conversion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
 .conversion {
   width: 16px;
   height: 16px;
-  margin-right: 24px;
+}
+.pin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
 }
 .pin {
   width: 16px;
   height: 16px;
+}
+.pin-container:hover {
+  background-color: var(--color-invert-background-solid-40);
+  border-radius: 100%;
+}
+.conversion-container:hover {
+  background-color: var(--color-invert-background-solid-40);
+  border-radius: 100%;
 }
 .wrapper {
   display: flex;
@@ -134,7 +132,6 @@ li:first-of-type a {
   background-color: var(--color-invert-component-tr-80);
   border-radius: 20px;
 }
-
 .target {
   background-color: transparent;
   border: none;
@@ -153,16 +150,13 @@ li:first-of-type a {
   border-radius: 2px;
   font-size: 12px;
 }
-
 .header-bottom-content {
   display: flex;
 }
-
 #header-bottom {
   position: sticky;
   top: 0;
 }
-
 .header-bottom {
   display: flex;
   height: 58px;
@@ -178,15 +172,16 @@ li:first-of-type a {
   list-style-type: none;
   color: #ffffffeb;
 }
-
 ul {
   padding: 0;
 }
-
 .submenu-item {
   padding-right: 50px;
   font-weight: normal;
   font-size: 14px;
+}
+.submenu-item:hover {
+  color: white;
 }
 
 /* titlle */
@@ -224,7 +219,6 @@ ul {
   font-size: 24px;
   color: white;
 }
-
 .herro-banner button {
   position: absolute;
   left: 40px;
@@ -242,7 +236,6 @@ ul {
   width: 120px;
   border: none;
 }
-
 .header-catalog-content {
   display: flex;
   justify-content: space-between;
@@ -261,7 +254,6 @@ ul {
   font-size: 18px;
   font-family: 'BOG Headline';
 }
-
 .search {
   position: relative;
   margin: 0;
@@ -270,7 +262,6 @@ ul {
   color: white;
   margin-right: 32px;
 }
-
 .input-text {
   height: 40px;
   background-color: #1c2b3b;
@@ -291,18 +282,15 @@ ul {
 .sumbit-icon {
   position: absolute;
   top: 0;
-
   height: 100%;
   display: flex;
   right: 18px;
   border-radius: 12px;
   border: 0;
 }
-
 .sort-catalog option {
   color: black;
 }
-
 .sort-catalog {
   width: 200px;
   height: 40px;
@@ -317,29 +305,24 @@ ul {
   padding: 8px 16px;
   outline: none;
 }
-.floating-button{
+.floating-button {
   display: flex;
-  justify-content:center;
-align-items: center;
-  background-color: #fb8d04;;
+  justify-content: center;
+  align-items: center;
+  background-color: #fb8d04;
   width: 100%;
-  height:56px;
-
+  height: 56px;
   font-size: 14px;
-display: none;
-
+  display: none;
 }
-.floating-button-content{
-color:rgba(255, 255, 255, 0.92);
-text-decoration: none;
-text-transform: uppercase;
-
+.floating-button-content {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  text-transform: uppercase;
 }
-
 #off-count {
   margin-left: 12px;
 }
-
 /* offers */
 .solo-developers {
   display: grid;
@@ -351,7 +334,6 @@ text-transform: uppercase;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
 }
-
 .offer-item {
   width: 312px;
   height: 372px;
@@ -363,7 +345,6 @@ text-transform: uppercase;
   border-radius: 4px;
   position: relative;
 }
-
 .offer-image img {
   width: 100%;
   height: 160px;
@@ -393,7 +374,6 @@ text-transform: uppercase;
   font-size: 14px;
   padding-top: 4px;
 }
-
 .offers-button {
   align-self: flex-start;
   position: absolute;
@@ -411,9 +391,6 @@ text-transform: uppercase;
   background-color: #1f2c3a;
 }
 /* filter */
-
-
-
 .filter-city {
   box-sizing: border-box;
   display: flex;
@@ -428,7 +405,6 @@ text-transform: uppercase;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 12px;
 }
-
 .filter-header-top {
   display: flex;
   justify-content: space-between;
@@ -453,7 +429,6 @@ text-transform: uppercase;
   font-size: 12px;
   color: var(--color-invert-component-tr-40);
 }
-
 .price-filter {
   margin-top: 24px;
   box-sizing: border-box;
@@ -469,16 +444,13 @@ text-transform: uppercase;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 12px;
 }
-
 .radio-item {
   display: flex;
   margin-top: 16px;
 }
-
 .radio-input {
   margin-right: 8px;
 }
-
 .status-filter {
   margin-top: 24px;
   box-sizing: border-box;
@@ -494,28 +466,23 @@ text-transform: uppercase;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 12px;
 }
-
 .radio-container {
   display: flex;
   flex-direction: row;
   margin-top: 16px;
 }
-
 .price-filter-content {
   width: 100%;
   margin-top: 16px;
 }
-
 .status-filter-content {
   width: 100%;
   margin-top: 24px;
 }
-
 #status {
   margin-bottom: 16px;
   margin-right: 4px;
 }
-
 .footer-sections {
   bottom: 0;
   width: 100%;
@@ -528,7 +495,6 @@ text-transform: uppercase;
   display: flex;
   justify-content: space-between;
 }
-
 .copyright {
   display: flex;
   justify-content: center;
@@ -537,7 +503,6 @@ text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
 }
-
 .language {
   width: 134px;
   height: 32px;
@@ -586,31 +551,27 @@ text-transform: uppercase;
   font-size: 14px;
   color: #cacaca;
 }
-
-input[type="checkbox"] {
+input[type='checkbox'] {
   filter: hue-rotate(175deg);
 }
-
-input[type="radio"] {
+input[type='radio'] {
   filter: hue-rotate(175deg);
 }
-
 .responsive-filter-button {
   display: none;
 }
-
 .offers-container {
   width: 100%;
 }
-
 a {
   font-family: 'BOG Regular';
 }
-
 label {
   font-family: 'BOG Regular';
 }
 
+
+/* responsive */
 @media only screen and (max-width: 1024px) {
   .container {
     max-width: 928px;
@@ -618,11 +579,9 @@ label {
   .header-left-navigation {
     padding-right: 10px;
   }
-
   .header-left-navigation li:last-child {
     display: none;
   }
-
   .submenu-item {
     padding-right: 20px;
   }
@@ -639,7 +598,6 @@ label {
     height: auto;
     flex-direction: row-reverse;
   }
-
   .offer-content {
     display: flex;
     width: 100%;
@@ -665,7 +623,7 @@ label {
   .header-top-left {
     margin-right: 30%;
   }
-  .header-bottom li:nth-last-child(6) {
+  .header-bottom li:nth-last-child(7) {
     display: none;
   }
   .title {
@@ -720,7 +678,7 @@ label {
   .header-top-left {
     margin: 0;
   }
-  .offers{
+  .offers {
     gap: 24px;
   }
   .offer-item {
@@ -731,48 +689,42 @@ label {
     font-size: 16px;
     max-width: 225px;
   }
-
   .herro-banner button {
     top: 62%;
   }
-  .floating-button{
+  .floating-button {
     display: flex;
   }
-  .footer{
-  display: inline-block;
+  .footer {
+    display: inline-block;
   }
-  .copyright{
+  .copyright {
     padding: 8px 0;
   }
-
   .header-catalog-content-right {
     width: 100%;
     flex-direction: column-reverse;
   }
-
   .responsive-filters {
     display: flex;
     flex-direction: row;
   }
-
   .responsive-filter-button {
     display: flex;
     margin-right: 16px;
     width: 100px;
     align-items: center;
     justify-content: center;
-    background-color:#232f3d;
+    background-color: #232f3d;
     border: none;
     color: white;
     justify-content: space-evenly;
   }
-
   .search {
     max-width: unset;
     margin: 0;
     margin-top: 16px;
   }
-
   .input-text {
     width: 100%;
   }
