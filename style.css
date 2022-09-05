@@ -26,6 +26,12 @@ body {
 .items-container {
   display: none;
 }
+/* header */
+.main-header {
+  position: sticky;
+  top: -78px;
+  z-index: 1;
+}
 .header-top {
   display: flex;
   justify-content: center;
@@ -569,7 +575,6 @@ a {
 label {
   font-family: 'BOG Regular';
 }
-
 
 /* responsive */
 @media only screen and (max-width: 1024px) {
